@@ -3,7 +3,7 @@
 Official web platform for **Wraith**, a 2D pixel-art action game (Godot engine). The site presents the game, distributes the Windows installer, and provides an authenticated dashboard for players and administrators (profiles, news/forum, donations, and an AI support chat).
 
 🌐 **Live:** https://wraith-web.vercel.app
-⬇️ **Installer:** https://wraith-web.vercel.app/downloads/Wraith-Installer.exe
+
 
 ---
 
