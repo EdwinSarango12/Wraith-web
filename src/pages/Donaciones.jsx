@@ -10,9 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ShapeGrid from '../components/backgrounds/ShapeGrid';
 import Cubes from '../components/backgrounds/Cubes';
 
-const stripePromise = loadStripe(
-  import.meta.env.VITE_STRIPE_PUBLIC_KEY || import.meta.env.VITE_STRAPI_KEY
-);
+const STRIPE_KEY = import.meta.env.VITE_STRIPE_PUBLIC_KEY || import.meta.env.VITE_STRAPI_KEY;
+const stripePromise = STRIPE_KEY ? loadStripe(STRIPE_KEY) : null;
 
 // Dollar sign pixel pattern for 11×11 Cubes grid
 const DOLLAR_COLOR = '#15803d';

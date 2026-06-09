@@ -21,7 +21,8 @@ function ModalPayment({ descripcion }) {
         }
 
         if (!stripe || !elements) {
-            console.error("Stripe.js o Elements no están disponibles.");
+            toast.error("Stripe no está disponible. Verifica la configuración del servidor.");
+            setLoading(false);
             return;
         }
 
