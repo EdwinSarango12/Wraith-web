@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import useFetch from '../hooks/useFetch';
 import { ToastContainer } from 'react-toastify';
 import storeAuth from '../context/storeAuth';
-import API_BASE_URL, { ENDPOINTS } from '../config/api';
+import { ENDPOINTS } from '../config/api';
 import AuthShell from '../components/auth/AuthShell';
 
 const Login = () => {
@@ -30,10 +30,6 @@ const Login = () => {
         if (response) {
             navigate('/dashboard');
         }
-    };
-
-    const loginWithGoogle = () => {
-        window.location.href = `${API_BASE_URL}${ENDPOINTS.auth.google}`;
     };
 
     return (
@@ -94,18 +90,7 @@ const Login = () => {
                     {isSubmitting ? <span className="wr-spin" aria-hidden="true" /> : 'Entrar'}
                 </button>
 
-                {/* Separador */}
-                <div className="wr-auth-sep">
-                    <hr />
-                    <span>O</span>
-                    <hr />
-                </div>
 
-                {/* Botón Google */}
-                <button type="button" onClick={loginWithGoogle} className="wr-auth-btn wr-auth-btn-ghost">
-                    <img className="w-5 h-5" src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="" aria-hidden="true" />
-                    Google
-                </button>
             </form>
 
             {/* Enlaces */}
