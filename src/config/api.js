@@ -6,6 +6,7 @@ export const ENDPOINTS = {
     loginJugador: "/login",
     loginAdministrador: "/login/administrador",
     registro: "/registro",
+    reenviarConfirmacion: "/reenviar-confirmacion",
     google: "/auth/google",
   },
   profile: {

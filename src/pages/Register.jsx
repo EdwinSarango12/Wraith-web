@@ -20,8 +20,12 @@ export const Register = () => {
         email: data.email,
         password: data.password,
       });
-      toast.success("Registro exitoso");
-      console.log("Respuesta backend:", res.data);
+      if (res.data?.emailFailed) {
+        // Cuenta creada pero el correo no salió: dirige al reenvío.
+        toast.info(res.data?.msg ?? "Cuenta creada, pero no se pudo enviar el correo. Usa \"Reenviar confirmación\".");
+      } else {
+        toast.success(res.data?.msg ?? "Registro exitoso. Revisa tu correo para confirmar tu cuenta.");
+      }
     } catch (error) {
       console.error("Error en registro:", error);
       if (error.response) {
@@ -123,12 +127,15 @@ export const Register = () => {
         </button>
       </form>
 
-      <div className="mt-6 flex items-center justify-between text-center">
-        <Link to="/" className="wr-auth-link">← Regresar</Link>
-        <p className="wr-auth-link">
-          ¿Ya tienes cuenta?{" "}
-          <Link to="/login" className="wr-auth-link font-bold underline">Inicia sesión</Link>
-        </p>
+      <div className="mt-6 flex flex-col gap-3 text-center">
+        <Link to="/reenviar-confirmacion" className="wr-auth-link">¿No te llegó el correo de confirmación? Reenviar</Link>
+        <div className="flex items-center justify-between">
+          <Link to="/" className="wr-auth-link">← Regresar</Link>
+          <p className="wr-auth-link">
+            ¿Ya tienes cuenta?{" "}
+            <Link to="/login" className="wr-auth-link font-bold underline">Inicia sesión</Link>
+          </p>
+        </div>
       </div>
     </AuthShell>
   );

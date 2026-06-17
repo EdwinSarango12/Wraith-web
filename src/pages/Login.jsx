@@ -96,6 +96,7 @@ const Login = () => {
             {/* Enlaces */}
             <div className="mt-6 flex flex-col gap-3 text-center">
                 <Link to="/forgot/id" className="wr-auth-link">¿Olvidaste tu contraseña?</Link>
+                <Link to="/reenviar-confirmacion" className="wr-auth-link">¿No te llegó el correo de confirmación? Reenviar</Link>
                 <div className="flex items-center justify-between">
                     <Link to="/" className="wr-auth-link">← Regresar</Link>
                     <Link to="/register" className="wr-auth-link">Crear cuenta →</Link>

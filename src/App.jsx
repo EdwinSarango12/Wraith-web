@@ -14,6 +14,7 @@ import Login from './pages/Login'
 import { Register } from './pages/Register'
 import { Forgot } from './pages/Forgot'
 import { Confirm } from './pages/Confirm'
+import { ResendConfirmation } from './pages/ResendConfirmation'
 import { NotFound } from './pages/NotFound'
 import Reset from './pages/Reset'
 import Ambiente from './pages/Ambiente'
@@ -71,6 +72,7 @@ function App() {
           <Route path="forgot/:id" element={<Forgot />} />
           <Route path="confirmar/:token" element={<Confirm />} />
           <Route path="api/confirmar/:token" element={<Confirm />} />
+          <Route path="reenviar-confirmacion" element={<ResendConfirmation />} />
           <Route path="api/recuperarpassword/:token" element={<Reset />} />
           <Route path="reset/:token" element={<ResetPassword />} />
         </Route>
