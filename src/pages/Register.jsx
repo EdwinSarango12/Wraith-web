@@ -28,10 +28,16 @@ export const Register = () => {
       }
     } catch (error) {
       console.error("Error en registro:", error);
+      const msg = error?.response?.data?.msg;
       if (error.response) {
         console.error("Respuesta del backend:", error.response.data);
       }
-      toast.error("Error en el registro");
+      // Cuenta ya existe (probablemente sin confirmar): sugiere reenviar el correo.
+      if (msg?.toLowerCase().includes("registrado")) {
+        toast.error(`${msg}. Si no confirmaste tu cuenta, usa "Reenviar confirmación".`);
+      } else {
+        toast.error(msg ?? "Error en el registro");
+      }
     }
   };
 
