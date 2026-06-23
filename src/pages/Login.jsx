@@ -21,15 +21,17 @@ const Login = () => {
             : ENDPOINTS.auth.loginJugador;
         const response = await fetchDataBackend(endpoint, data, 'POST', null);
 
+        // Login fallido (cuenta no verificada, credenciales, etc.): fetchDataBackend
+        // devuelve undefined y ya mostró el toast con el msg del backend. Salir sin
+        // romper con "Cannot read properties of undefined (reading 'token')".
+        if (!response?.token) return;
+
         setToken(response.token);
 
         const rol = response?.rol ?? (endpoint === ENDPOINTS.auth.loginAdministrador ? "Administrador" : "Jugador");
         setRol(rol);
-        setToken(response.token);
 
-        if (response) {
-            navigate('/dashboard');
-        }
+        navigate('/dashboard');
     };
 
     return (
