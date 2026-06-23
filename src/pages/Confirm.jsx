@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
+import API_BASE_URL from '../config/api'
 import FaultyTerminal from '../components/backgrounds/FaultyTerminal'
 
 export const Confirm = () => {
@@ -9,7 +10,7 @@ export const Confirm = () => {
 
   const verifyToken = async () => {
     try {
-      const url = `${import.meta.env.VITE_BACKEND_URL}/confirmar/${token}`
+      const url = `${API_BASE_URL}/confirmar/${token}`
       const response = await axios.get(url)
       toast.success(response?.data?.msg)
     } catch (error) {

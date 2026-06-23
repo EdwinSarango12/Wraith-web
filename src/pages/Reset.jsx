@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
+import API_BASE_URL from '../config/api'
 import FaultyTerminal from '../components/backgrounds/FaultyTerminal'
 
 const Reset = () => {
@@ -41,7 +42,7 @@ const Reset = () => {
       confirmpassword: data.confirmpassword,
       email: data.email
     }
-    const baseUrl = import.meta.env.VITE_BACKEND_URL
+    const baseUrl = API_BASE_URL
     const requestUrl = `${baseUrl}/nuevopassword/${token}`
 
     let responseData = null
